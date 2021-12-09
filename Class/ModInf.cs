@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 
 namespace BaroTranslateFormatTool.Class
@@ -106,7 +107,13 @@ namespace BaroTranslateFormatTool.Class
                     if (node != null)
                     {
                         if (node.NodeType == XmlNodeType.Comment) continue;
-                        tempList.Add(((XmlElement)node).GetAttribute(BaroFileType.BaroChildNodeDictionary[type]));
+                        if (node.Name.Equals("Override")) continue;
+                        string name = ((XmlElement)node).GetAttribute(BaroFileType.BaroChildNodeDictionary[type]);
+                        //防止出现多重identifier
+                        if (name.Contains(','))
+                            name = name.Substring(0, name.IndexOf(','));
+                        tempList.Add(name);
+                        //tempList.Add(((XmlElement)node).GetAttribute(BaroFileType.BaroChildNodeDictionary[type]));
                     }
                 }
             }
@@ -122,7 +129,12 @@ namespace BaroTranslateFormatTool.Class
                         {
                             if (node1.NodeType == XmlNodeType.Comment) continue;
                             if (node1.Name.Equals("Override")) continue;
-                            tempList.Add(((XmlElement)node1).GetAttribute(BaroFileType.BaroChildNodeDictionary[type]));
+                            string name = ((XmlElement)node1).GetAttribute(BaroFileType.BaroChildNodeDictionary[type]);
+                            //防止出现多重identifier
+                            if (name.Contains(','))
+                                name = name.Substring(0, name.IndexOf(','));
+                            tempList.Add(name);
+                            //tempList.Add(((XmlElement)node1).GetAttribute(BaroFileType.BaroChildNodeDictionary[type]));
                         }
                     }
                 }
@@ -172,12 +184,157 @@ namespace BaroTranslateFormatTool.Class
         }
 
         /// <summary>
-        /// 新建汉化文件并写入空白xml翻译格式
+        /// 创建并写入xml翻译文件
         /// </summary>
+        /// <param name="language">语言</param>
         /// <param name="path">汉化路径</param>
-        public void PrintToTranslationFile(string path)
+        public void WriteXmlFile(string language, string path)
         {
-            //TODO 针对四类文件进行汉化xml格式输出
+            //TODO 这里每次写之前要检查有无重复文件，目前遇到重复文件就不会再新建
+            XmlDocument? doc = PrintToTranslationFile(language, path);
+            doc?.Save(path + "\\" + _name + "-" + BaroFileType.BaroTranslateNameDictionary[language] + ".xml");
+        }
+        /// <summary>
+        /// 创建并写入xml翻译文件
+        /// </summary>
+        /// <param name="language">语言</param>
+        /// <param name="name">文件名</param>
+        /// <param name="path">汉化路径</param>
+        public void WriteXmlFile(string language, string name, string path)
+        {
+            //TODO 这里每次写之前要检查有无重复文件，目前遇到重复文件就不会再新建
+            XmlDocument? doc = PrintToTranslationFile(language, path);
+            doc?.Save(path + "\\" + name + ".xml");
+        }
+
+        /// <summary>
+        /// 根据获得的列表生成xml对象
+        /// </summary>
+        /// <param name="language">语言</param>
+        /// <param name="path">汉化路径</param>
+        /// <returns>创建好的XmlDocument对象</returns>
+        private XmlDocument? PrintToTranslationFile(string language, string path)
+        {
+            //是否有值，影响xml是否返回null
+            bool hasValue = false;
+
+            XmlDocument doc = new XmlDocument();
+            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "utf-8", "yes");
+            doc.AppendChild(dec);
+            
+            //infotext
+            XmlElement rootElement = doc.CreateElement("infotext");
+            //language="" nowhitespace="true" translatedname=""
+            XmlAttribute lanAttribute = doc.CreateAttribute("language");
+            lanAttribute.Value = language;
+            rootElement.Attributes.Append(lanAttribute);
+            XmlAttribute whitespaceAttribute = doc.CreateAttribute("nowhitespace");
+            whitespaceAttribute.Value = "true";
+            rootElement.Attributes.Append(whitespaceAttribute);
+            XmlAttribute translatedAttribute = doc.CreateAttribute("translatedname");
+            translatedAttribute.Value = BaroFileType.BaroTranslateNameDictionary[language];
+            rootElement.Attributes.Append(translatedAttribute);
+
+            //Item名称集合不为空
+            if (_itemNameList != null && _itemNameList.Count > 0)
+            {
+                rootElement.AppendChild(doc.CreateComment("[Items]"));
+                foreach (var name in _itemNameList)
+                {
+                    rootElement.AppendChild(doc.CreateComment(name));
+
+                    XmlElement nameElement = doc.CreateElement("entityname." + name);
+                    nameElement.InnerXml = " ";
+                    rootElement.AppendChild(nameElement);
+
+                    XmlElement descElement = doc.CreateElement("entitydescription." + name);
+                    descElement.InnerXml = " ";
+                    rootElement.AppendChild(descElement);
+                }
+                if(hasValue == false) hasValue = true;
+            }
+
+            //Character名称集合不为空
+            if (_characterNameList != null && _characterNameList.Count > 0)
+            {
+                rootElement.AppendChild(doc.CreateComment("[Characters]"));
+                foreach (var name in _characterNameList)
+                {
+                    rootElement.AppendChild(doc.CreateComment(name));
+
+                    XmlElement nameElement = doc.CreateElement("character." + name);
+                    nameElement.InnerXml = " ";
+                    rootElement.AppendChild(nameElement);
+                }
+                if (hasValue == false) hasValue = true;
+            }
+
+            //Affliction名称集合不为空
+            if (_afflictionNameList != null && _afflictionNameList.Count > 0)
+            {
+                rootElement.AppendChild(doc.CreateComment("[Afflictions]"));
+                foreach (var name in _afflictionNameList)
+                {
+                    rootElement.AppendChild(doc.CreateComment(name));
+
+                    XmlElement nameElement = doc.CreateElement("afflictionname." + name);
+                    nameElement.InnerXml = " ";
+                    rootElement.AppendChild(nameElement);
+
+                    XmlElement descElement = doc.CreateElement("afflictiondescription." + name);
+                    descElement.InnerXml = " ";
+                    rootElement.AppendChild(descElement);
+
+                    //XmlElement causeOfDeathElement = doc.CreateElement("afflictioncauseofdeath." + name);
+                    //causeOfDeathElement.InnerXml = " ";
+                    //rootElement.AppendChild(causeOfDeathElement);
+
+                    //XmlElement causeOfDeathSelfElement = doc.CreateElement("afflictioncauseofdeathself." + name);
+                    //causeOfDeathSelfElement.InnerXml = " ";
+                    //rootElement.AppendChild(causeOfDeathSelfElement);
+
+                }
+                if (hasValue == false) hasValue = true;
+            }
+
+            //Mission名称集合不为空
+            if (_missionNameList != null && _missionNameList.Count > 0)
+            {
+                rootElement.AppendChild(doc.CreateComment("[Missions]"));
+                foreach (var name in _missionNameList)
+                {
+                    rootElement.AppendChild(doc.CreateComment(name));
+
+                    XmlElement nameElement = doc.CreateElement("missionname." + name);
+                    nameElement.InnerXml = " ";
+                    rootElement.AppendChild(nameElement);
+
+                    XmlElement descElement = doc.CreateElement("missiondescription." + name);
+                    descElement.InnerXml = " ";
+                    rootElement.AppendChild(descElement);
+
+                    //XmlElement successElement = doc.CreateElement("missionsuccess." + name);
+                    //successElement.InnerXml = " ";
+                    //rootElement.AppendChild(successElement);
+
+                    //XmlElement sonarElement = doc.CreateElement("missionsonarlabel." + name);
+                    //sonarElement.InnerXml = " ";
+                    //rootElement.AppendChild(sonarElement);
+
+                    //XmlElement headerElement = doc.CreateElement("missionheader0." + name);
+                    //headerElement.InnerXml = " ";
+                    //rootElement.AppendChild(headerElement);
+
+                    //XmlElement messageElement = doc.CreateElement("missionmessage0." + name);
+                    //messageElement.InnerXml = " ";
+                    //rootElement.AppendChild(messageElement);
+                }
+                if (hasValue == false) hasValue = true;
+            }
+
+            doc.AppendChild(rootElement);
+
+            return hasValue ? doc : null;
         }
 
         #endregion

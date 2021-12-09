@@ -1,4 +1,8 @@
-﻿namespace BaroTranslateFormatTool.Tools
+﻿using System.IO;
+using System.Reflection.PortableExecutable;
+using System.Xml;
+
+namespace BaroTranslateFormatTool.Tools
 {
     internal static class FileTools
     {
@@ -28,9 +32,14 @@
             }
         }
 
+        /// <summary>
+        /// 删除文件夹以及其所有子文件
+        /// </summary>
+        /// <param name="path">路径</param>
         public static void DeleteFolder(string path)
         {
             Directory.Delete(path, true);
         }
+
     }
 }

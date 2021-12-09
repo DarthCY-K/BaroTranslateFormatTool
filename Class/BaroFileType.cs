@@ -1,4 +1,6 @@
-﻿namespace BaroTranslateFormatTool.Class
+﻿using System.Collections.Generic;
+
+namespace BaroTranslateFormatTool.Class
 {
     public static class BaroFileType
     {
@@ -52,6 +54,11 @@
             {BaroFileTypeEnum.Character,"displayname"},
             {BaroFileTypeEnum.Affliction,""},
             {BaroFileTypeEnum.Mission,""}
+        };
+
+        internal static Dictionary<string, string> BaroTranslateNameDictionary = new Dictionary<string, string>()
+        {
+            {"Simplified Chinese","中文(简体)"}
         };
     }
 }
