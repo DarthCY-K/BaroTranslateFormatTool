@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Ragdoll type="coelanth" canentersubmarine="True" canwalk="False" texture="Content/Characters/Coelanth/coelanth.png">
+
+  <collider radius="50" height="250"/>
+    
+  <!-- head -->
+  <limb id="0" radius="50" height="270" type="Head" steerforce="16" name="Limb 0" spriteorientation="NaN" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="1" width="0" density="10" ignorecollisions="False" angulardamping="7" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" healthindex="0" friction="0.3" restitution="0.05" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" inheritlimbdepth="None" onlyblinkinwater="False">>
+    <sprite sourcerect="267,171,162,392" depth="0.02" origin ="0.5,0.5"/>
+	<lightsource color="255,231,100,129" range="1068" castshadows="false" scale="1" offset="0,0" rotation="0" flicker="0" flickerspeed="1" pulsefrequency="0" pulseamount="0" blinkfrequency="0">
+      <lighttexture texture="Content/Lights/pointlight_falloff.png" origin="0.51,0.49" size="1,1" />
+    </lightsource>
+	<damagemodifier damagesound="LimbArmor" damagemultiplier="0.05" probabilitymultiplier="0.9" armorsector="0,360" deflectprojectiles="True" afflictionidentifiers="" afflictiontypes="damage" damageparticle="" />
+    <damagemodifier damagesound="LimbArmor" damagemultiplier="0.1" probabilitymultiplier="1" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="" afflictiontypes="bleeding" damageparticle="" />
+  </limb>
+
+  <!-- lower yaw -->
+  <limb id="1" radius="20" height="240" name="Limb 1" type="None" spriteorientation="NaN" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="1" steerforce="0" width="0" density="10" ignorecollisions="False" angulardamping="7" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" healthindex="0" friction="0.3" restitution="0.05" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" inheritlimbdepth="None" onlyblinkinwater="False">
+    <sprite sourcerect="425,1,101,309" depth="0.025" origin="0.5,0.5" texture="" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" ignoretint="False" />
+    <attack range="220" damagerange="300" duration="0.5" structuredamage="90" structuresoundtype="StructureSlash" torque="100" targetforce="-50" severlimbsprobability="0.8" context="Any" targettype="Any" targetlimbtype="None" hitdetectiontype="Distance" afterattack="FallBack" afterattackdelay="0" reverse="False" retreat="False" cooldown="1" secondarycooldown="0" cooldownrandomfactor="0" itemdamage="40" stun="0" onlyhumans="False" applyforceonlimbs="" force="0" rootforceworldstart="0,0" rootforceworldmiddle="0,0" rootforceworldend="0,0" roottransitioneasing="Linear" applyforcesonlyonce="False" targetimpulse="0" targetimpulseworld="0,0" targetforceworld="0,0" priority="0" fullspeedafterattack="False" penetration="0" levelwalldamage="90" ranged="False" avoidfriendlyfire="False" requiredangle="20" submarineimpactmultiplier="1" blink="False">
+      <Affliction identifier="bitewounds" strength="20" probability="1" />
+      <Affliction identifier="bleeding" strength="50" probability="1" />
+    </attack>
+    <damagemodifier damagesound="" damagemultiplier="0.1" probabilitymultiplier="0.9" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="" afflictiontypes="damage" damageparticle="" />
+    <damagemodifier damagesound="LimbArmor" damagemultiplier="0.1" probabilitymultiplier="1" armorsector="0,360" deflectprojectiles="False" afflictionidentifiers="" afflictiontypes="bleeding" damageparticle="" />
+  </limb>
+
+  <!-- body -->
+  <limb id="2" radius="113.899994" height="40" type="Torso" steerforce="0.099998474" name="Limb 2" spriteorientation="NaN" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="1" width="0" density="10" ignorecollisions="False" angulardamping="7" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" healthindex="0" friction="0.3" restitution="0.05" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" inheritlimbdepth="None" onlyblinkinwater="False">
+    <deformablesprite sourcerect="0,0,268,250" depth="0.03" origin="0.49506617,0.5016877" texture="" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" subdivisions="3,3" ignoretint="False">
+      <spritedeformation type="bendjoint" resolution="3,3" multiplier="1.0" sync="-1" typename="bendjoint" blendmode="Add" usemovementsine="False" stopwhenhostisdead="False" sineoffset="0" maxrotation="50" strength="3.6" onlyinwater="False" />
+    </deformablesprite>
+  </limb>
+
+  <!-- tail -->
+  <limb id="3" radius="30" height="180" type="Tail" name="Limb 3" spriteorientation="NaN" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="1" steerforce="0" width="0" density="10" ignorecollisions="False" angulardamping="7" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" healthindex="0" friction="0.3" restitution="0.05" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" inheritlimbdepth="None" onlyblinkinwater="False">
+    <deformablesprite sourcerect="441,321,96,301" depth="0.135" origin="0.5,0.5" texture="" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" subdivisions="3,3" ignoretint="False">
+      <!-- <spritedeformation type="bendjoint" resolution="3,3" multiplier="1.0" sync="-1" typename="bendjoint" blendmode="Add" usemovementsine="False" stopwhenhostisdead="False" sineoffset="0" maxrotation="50" strength="3.6" onlyinwater="False" />-->
+    </deformablesprite>
+  </limb>
+
+  <!-- front fins -->    
+  <limb id="4" radius="30" height="250" name="Limb 4" type="Tail" spriteorientation="NaN" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="1" steerforce="0" width="0" density="10" ignorecollisions="False" angulardamping="7" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" healthindex="0" friction="0.3" restitution="0.05" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" inheritlimbdepth="None" onlyblinkinwater="False">
+    <sprite sourcerect="532,0,92,382" depth="0.008" origin="0.5,0.5" texture="" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" ignoretint="False" />
+  </limb>
+
+  <!-- back fins -->
+  <limb id="5" width="80" height="150" ignorecollisions="True" name="Limb 5" type="Tail" spriteorientation="NaN" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="1" steerforce="0" radius="0" density="10" angulardamping="7" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" healthindex="0" friction="0.3" restitution="0.05" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" inheritlimbdepth="None" onlyblinkinwater="False">
+    <sprite sourcerect="303,5,94,163" depth="0.01" origin="0.5,0.5" texture="" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" ignoretint="False" />
+  </limb>
+  <limb id="6" radius="73.899994" width="10" height="170" name="Limb 6" type="None" spriteorientation="NaN" flip="True" mirrorvertically="False" mirrorhorizontally="False" hide="False" attackpriority="1" steerforce="0" density="10" ignorecollisions="False" angulardamping="7" pullpos="0,0" stepoffset="0,0" refjoint="-1" mouthpos="0,0" notes="" constanttorque="0" constantangle="0" scale="1" attackforcemultiplier="1" healthindex="0" friction="0.3" restitution="0.05" minseverancedamage="1" severedfadeouttime="10" applytailangle="False" sinefrequencymultiplier="1" sineamplitudemultiplier="1" blinkfrequency="0" blinkdurationin="0.2" blinkdurationout="0.5" blinkholdtime="0" blinkrotationin="0" blinkrotationout="45" blinkforce="50" blinktransitionin="Linear" blinktransitionout="Linear" inheritlimbdepth="None" onlyblinkinwater="False">
+    <deformablesprite texture="" sourcerect="0,246,268,322" origin="0.49506617,0.3047605" depth="0.035" color="255,255,255,255" deadcolor="255,255,255,255" deadcolortime="0" subdivisions="3,3" ignoretint="False">
+      <spritedeformation type="bendjoint" resolution="3,3" multiplier="1.0" sync="-1" typename="bendjoint" blendmode="Add" usemovementsine="False" stopwhenhostisdead="False" sineoffset="0" maxrotation="50" strength="3.6" onlyinwater="False" />
+    </deformablesprite>
+  </limb>
+
+  <!-- body to head -->
+  <joint limb1="0" limb1anchor="-5,-133" limb2="2" limb2anchor="-21.016989,58.661903" lowerlimit="-10" upperlimit="10" name="Joint 0 - 2" canbesevered="True" limitenabled="True" stiffness="0.25" scale="1" severanceprobabilitymodifier="0" breaksound="gore" weldjoint="False" clockwiserotation="False" />
+  <!-- body to lower yaw -->
+  <joint limb1="1" limb1anchor="-13.727667,-103.89896" limb2="0" limb2anchor="73.347786,-93.86647" lowerlimit="-1.0000217" upperlimit="44" name="Joint 1 - 2" canbesevered="True" limitenabled="True" stiffness="0.25" scale="1" severanceprobabilitymodifier="0" breaksound="gore" weldjoint="False" clockwiserotation="False" />
+  <!-- body to tail -->
+  <joint limb1="6" limb1anchor="20.099361,-179.99413" limb2="3" limb2anchor="-5.1896,104.532394" lowerlimit="-52.000008" upperlimit="61.000004" name="Joint 2 - 3" canbesevered="True" limitenabled="True" stiffness="0.25" scale="1" severanceprobabilitymodifier="0" breaksound="gore" weldjoint="False" clockwiserotation="False" />
+  <!-- body to front fin -->
+  <joint limb1="2" limb1anchor="56.115086,-15.982114" limb2="4" limb2anchor="0,160" lowerlimit="-50" upperlimit="50" name="Joint 2 - 4" canbesevered="True" limitenabled="True" stiffness="0.25" scale="1" severanceprobabilitymodifier="0" breaksound="gore" weldjoint="False" clockwiserotation="False" />
+  <!-- body to back fin -->
+  <joint limb1="6" limb1anchor="13.208691,-74.32947" limb2="5" limb2anchor="0,55" lowerlimit="-50" upperlimit="42" name="Joint 2 - 5" canbesevered="True" limitenabled="True" stiffness="0.25" scale="1" severanceprobabilitymodifier="0" breaksound="gore" weldjoint="False" clockwiserotation="False" />
+  <joint limb1="2" limb2="6" limb1anchor="2.07,-119.2" limb2anchor="2.1460614,99.20609" name="Joint 2 - 6" canbesevered="False" limitenabled="True" upperlimit="12" lowerlimit="-17.000013" stiffness="0.25" scale="1" severanceprobabilitymodifier="0" breaksound="gore" weldjoint="False" clockwiserotation="False" />
+</Ragdoll>

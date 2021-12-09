@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Undersea Horrors" path="Mods/Undersea Horrors/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2667451351" installtime="1638724457">
+  <None file="Mods/Undersea Horrors/filelist.xml.bak" />
+  <Character file="Mods/Undersea Horrors/Characters/Deadnought/Deadnought.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Deadnought/Deadnought.png" />
+  <None file="Mods/Undersea Horrors/Characters/Deadnought/Deadnought.xml.bak" />
+  <None file="Mods/Undersea Horrors/Characters/Endwhale/Endwhale.png" />
+  <Character file="Mods/Undersea Horrors/Characters/Endwhale/Endwhale.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Rockworm/Rockworm.png" />
+  <Character file="Mods/Undersea Horrors/Characters/Rockworm/Rockworm.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Deadnought/Animations/DeadnoughtSwimFast.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Deadnought/Animations/DeadnoughtSwimSlow.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Deadnought/Ragdolls/DeadnoughtDefaultRagdoll.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Deadnought/Ragdolls/DeadnoughtDefaultRagdoll.xml.bak" />
+  <None file="Mods/Undersea Horrors/Characters/Endwhale/Animations/EndwhaleSwimFast.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Endwhale/Animations/EndwhaleSwimSlow.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Endwhale/Ragdolls/EndwhaleDefaultRagdoll.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Endwhale/Ragdolls/EndwhaleDefaultRagdoll.xml.bak" />
+  <None file="Mods/Undersea Horrors/Characters/Rockworm/Animations/RockwormSwimFast.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Rockworm/Animations/RockwormSwimSlow.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Rockworm/Ragdolls/RockwormDefaultRagdoll.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Rockworm/Ragdolls/RockwormDefaultRagdoll.xml.bak" />
+  <Character file="Mods/Undersea Horrors/Characters/Mine/Mine.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Mine/Mine.xml.bak" />
+  <None file="Mods/Undersea Horrors/Characters/Mine/Mine.png" />
+  <None file="Mods/Undersea Horrors/Characters/Mine/Ragdolls/MineDefaultRagdoll.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Mine/Animations/MineSwimSlow.xml" />
+  <None file="Mods/Undersea Horrors/Characters/Mine/Animations/MineSwimFast.xml" />
+</contentpackage>

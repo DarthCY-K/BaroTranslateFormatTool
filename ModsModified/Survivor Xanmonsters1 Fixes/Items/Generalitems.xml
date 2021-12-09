@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--<Item name="Psychosis Artifact'" identifier="psychosisartifact_xan" category="Alien" Tags="alien,alienartifact" sonarsize="30" spritecolor="200,200,200,255" scale="0.5" impactsoundtag="impact_metal_heavy">
+    <Upgrade gameversion="0.9.3.1" scale="0.5"/>
+    <Price baseprice="1000" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="0.85" sold="false"/>
+      <Price locationtype="city" multiplier="0.85" sold="false"/>
+      <Price locationtype="research" multiplier="1.3" sold="false"/>
+      <Price locationtype="military" multiplier="1.25" sold="false"/>
+      <Price locationtype="mine" multiplier="1" sold="false"/>
+    </Price>
+    <PreferredContainer primary="wrecksecurearmcab,wreckshuttlecrate" minamount="0" maxamount="1" spawnprobability="0.05"/>
+    <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" depth="0.6" sourcerect="541,0,88,108" origin="0.5,0.5" />
+    <Deconstruct time="30">
+      <Item identifier="steel" />
+      <Item identifier="dementonite" />
+      <Item identifier="dementonite" />
+      <Item identifier="dementonite" />
+    </Deconstruct>
+    <Body radius="45" density="50" friction="0.95" />
+    <Holdable slots="RightHand+LeftHand" holdpos="30,-15" handle1="0,10" handle2="0,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="Always" target="This">
+        <Conditional hastag="neq artifactcontainer" targetcontainer="true"/>
+        <sound file="Content/Items/Alien/AlienArtifactLoop1.ogg" range="500.0" loop="true" />
+        <ParticleEmitter particle="psychosisfx" scalemultiplier="0.7,0.7" anglemax="360" emitinterval="1.1" particleamount="1" particlespersecond="1" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="Character,This">
+        <Conditional hastag="neq artifactcontainer" targetcontainer="true"/>
+        <Affliction identifier="psychosis" strength="0.5" />
+        <ParticleEmitter particle="psychosisfx" anglemax="360" particlespersecond="12" />
+      </StatusEffect>
+    </Holdable>
+    <LightComponent range="150.0" lightcolor="255,56,144,111" IsOn="true" castshadows="false" allowingameediting="false" pulseamount="0.9" pulsefrequency="0.25"/>
+  </Item>-->
+  <Item name="morbusinegasemitter" identifier="morbusinegasemitter" category="Alien" Tags="alien,alienartifact" sonarsize="0" scale="0.5">
+    <Upgrade scale="0.5" />
+    <PreferredContainer primary="wrecksecurearmcab,wreckshuttlecrate" minamount="0" maxamount="0" spawnprobability="0.005" />
+    <Sprite texture="Content/UI/MainIconsAtlas.png" depth="0.6" sourcerect="0,0,1,1" origin="0.5,0.5" />
+    <InventoryIcon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,0,1,1" origin="0.5,0.6" />
+    <Body radius="45" density="50" friction="0.95" />
+    <Holdable holdpos="30,-15" handle1="0,10" handle2="0,-10">
+      <StatusEffect type="Always" target="This,Hull" oxygen="-50000.0" />
+      <StatusEffect type="InWater" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" onlyinside="true">
+        <ParticleEmitter particle="morbusinemistlargefade" particlespersecond="50" scalemin="3" scalemax="3.2" velocitymin="0" velocitymax="40" anglemin="0" anglemax="360" />
+      </StatusEffect>
+      <StatusEffect type="NotInWater" target="NearbyCharacters" onlyinside="true" range="300" stackable="false" delay="1">
+        <Affliction identifier="morbusinegas" strength="10" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" stackable="false" delay="6">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+</Items>

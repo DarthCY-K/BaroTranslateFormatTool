@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="BaroTraumatic" path="Mods/BaroTraumatic/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2518816103" installtime="1638991505">
+  <Text file="Mods/BaroTraumatic/English.xml" />
+  <EventManagerSettings file="Mods/BaroTraumatic/EventManagerSettings.xml" />
+  <Missions file="Mods/BaroTraumatic/Missions.xml" />
+  <RandomEvents file="Mods/BaroTraumatic/randomevents.xml" />
+  <None file="Mods/BaroTraumatic/Map/General.png" />
+  <None file="Mods/BaroTraumatic/Map/GeneralAtlas.png" />
+  <Afflictions file="Mods/BaroTraumatic/Afflictions/BTAffliction.xml" />
+  <Item file="Mods/BaroTraumatic/Items/misc.xml" />
+  <NPCSets file="Mods/BaroTraumatic/BanditTweak.xml" />
+</contentpackage>

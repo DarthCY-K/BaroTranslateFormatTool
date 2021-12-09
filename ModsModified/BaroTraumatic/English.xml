@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotext language="English" nowhitespace="false" translatedname="English">
+<missionname.abandonedoutposthusks>Outpost Cleansing </missionname.abandonedoutposthusks>
+<missiondescription.abandonedoutposthusks>Contact with [location1] was recently lost, and it's suspected that the husk infection has taken over. Locate any infected creatures or eggs inside the outpost and destroy them.</missiondescription.abandonedoutposthusks>
+<missionsuccess.abandonedoutposthusks>The infection inside the outpost has been successfully eradicated.</missionsuccess.abandonedoutposthusks>
+<missionfailure.abandonedoutposthusks>The outpost remains infected.</missionfailure.abandonedoutposthusks>
+<missionheader0.abandonedoutposthusks>Nest destroyed</missionheader0.abandonedoutposthusks>
+<missionmessage0.abandonedoutposthusks>The infection inside the outpost has been successfully eradicated. Undock from the outpost to complete the mission.</missionmessage0.abandonedoutposthusks>
+
+<missionname.abandonedoutpostsepgen>Seperatist Base Destruction</missionname.abandonedoutpostsepgen>
+<missiondescription.abandonedoutpostsepgen>Contact with [location1] was recently lost, and there have been reports that seperatists have been using this location as a headquarters. Destroy the outpost's reactor to clear out any seperatist forces hiding at the location.</missiondescription.abandonedoutpostsepgen>
+<missionsuccess.abandonedoutpostsepgen>The general has been successfully eliminated.</missionsuccess.abandonedoutpostsepgen>
+<missionfailure.abandonedoutpostsepgen>Eliminating the leader of the seperatist failed.</missionfailure.abandonedoutpostsepgen>
+<missionheader0.abandonedoutpostsepgen>Seperatist leader killed</missionheader0.abandonedoutpostsepgen>
+<missionmessage0.abandonedoutpostsepgen>The seperatist general has been successfully eliminated. Undock from the outpost to complete the mission.</missionmessage0.abandonedoutpostsepgen>
+
+<missionname.abandonedoutpostsepgen>Seperatist General assassination</missionname.abandonedoutpostsepgen>
+<missiondescription.abandonedoutpostsepgen>Contact with [location1] was recently lost, and there have been reports about a notorious seperatist general using this location as a headquarters. This individual has a small army defending them and a massive stockpile of weapons at their disposal, tread lightly. There's a massive bounty on the head of the General – eliminate them to claim the reward.</missiondescription.abandonedoutpostsepgen>
+<missionsuccess.abandonedoutpostsepgen>The general has been successfully eliminated.</missionsuccess.abandonedoutpostsepgen>
+<missionfailure.abandonedoutpostsepgen>Eliminating the leader of the seperatist failed.</missionfailure.abandonedoutpostsepgen>
+<missionheader0.abandonedoutpostsepgen>Seperatist leader killed</missionheader0.abandonedoutpostsepgen>
+<missionmessage0.abandonedoutpostsepgen>The seperatist general has been successfully eliminated. Undock from the outpost to complete the mission.</missionmessage0.abandonedoutpostsepgen>
+
+<missionname.abandonedoutpostseprescue>Outpost rescue</missionname.abandonedoutpostseprescue>
+<missiondescription.abandonedoutpostseprescue>Contact with [location1] was recently lost, and seperatist recently sent out a message in which they demand a ransom for releasing a group of civilians they're holding hostage. The Coalition doesn't negotiate with terrorists, but has promised a considerable reward to anyone who manages to rescue the hostages. Be warned, these individuals are well-armed and battle-trained, be prepared!</missiondescription.abandonedoutpostseprescue>
+<missionsuccess.abandonedoutpostseprescue>The hostages were rescued successfully.</missionsuccess.abandonedoutpostseprescue>
+<missionfailure.abandonedoutpostseprescue>Rescuing the hostages failed.</missionfailure.abandonedoutpostseprescue>
+<missionheader0.abandonedoutpostseprescue>Hostages rescued</missionheader0.abandonedoutpostseprescue>
+<missionmessage0.abandonedoutpostseprescue>The hostages are now all safely on board the sub. Undock from the outpost to complete the mission.</missionmessage0.abandonedoutpostseprescue>
+
+<missionname.abandonedoutpostsepsquad>Secure Outpost</missionname.abandonedoutpostsepsquad>
+<missiondescription.abandonedoutpostsepsquad>Contact with [location1] was recently lost, and it's suspected that the seperatist are responsible. Wipe out their forces, but be warned, these individuals are well-armed and battle-trained, be prepared.</missiondescription.abandonedoutpostsepsquad>
+<missionsuccess.abandonedoutpostsepsquad>Seperatist forces succesfully eliminated</missionsuccess.abandonedoutpostsepsquad>
+<missionfailure.abandonedoutpostsepsquad>Seperatist forces remain in control of the outpost</missionfailure.abandonedoutpostsepsquad>
+<missionheader0.abandonedoutpostsepsquad>Hostiles neutralized</missionheader0.abandonedoutpostsepsquad>
+<missionmessage0.abandonedoutpostsepsquad>Seperatist forces inside the outpost has been successfully neutralized. Undock from the outpost to complete the mission.</missionmessage0.abandonedoutpostsepsquad>
+
+<missionname.abandonedoutpostcultist>Outpost Cleansing </missionname.abandonedoutpostcultist>
+<missiondescription.abandonedoutpostcultist>Contact with [location1] was recently lost, and it's suspected that a band of husk cultists has taken over. Locate any infected creatures or cultists inside the outpost and destroy them.</missiondescription.abandonedoutpostcultist>
+<missionsuccess.abandonedoutpostcultist>The infection inside the outpost has been successfully eradicated.</missionsuccess.abandonedoutpostcultist>
+<missionfailure.abandonedoutpostcultist>The outpost remains infected.</missionfailure.abandonedoutpostcultist>
+<missionheader0.abandonedoutpostcultist>Outpost Cleared</missionheader0.abandonedoutpostcultist>
+<missionmessage0.abandonedoutpostcultist>The infection inside the outpost has been successfully eradicated. Undock from the outpost to complete the mission.</missionmessage0.abandonedoutpostcultist>
+
+<character.fractaldestroyer>Fractal Destroyer</character.fractaldestroyer>
+<character.voidleviathan>Void Leviathan</character.voidleviathan>
+<character.Voidstalker>Voidstalker</character.Voidstalker>
+<character.Voidleech>Void leech</character.Voidleech>
+<character.Xan_Scavenger>Scavenger</character.Xan_Scavenger>
+<character.Xanothresher>Xanothresher</character.Xanothresher>
+<character.Lionthresher>Lionthresher</character.Lionthresher>
+<character.Mudbouncer>Mudbouncer</character.Mudbouncer>
+<character.Charybdisre>Charybdis</character.Charybdisre>
+<character.Bossmoloch>Ancient Moloch</character.Bossmoloch>
+<character.Immortal>Husk Immortal</character.Immortal>
+<character.Bruteflora>Infected Brute</character.Bruteflora>
+<character.Observer>Observer</character.Observer>
+<character.Hydrathresher>Hydrathresher</character.Hydrathresher>
+<character.Carrier>Carrier</character.Carrier>
+<character.Carrierleviathan>Carrier Leviathan</character.Carrierleviathan>
+<character.Huskhammerspawn>Hammerhead Spawn</character.Huskhammerspawn>
+<character.Huskbroodmother>Husk Broodmother</character.Huskbroodmother>
+<character.Helmetcrablet>Helmet Crablet</character.Helmetcrablet>
+<character.Crawlercrablet>Crawler crablet</character.Crawlercrablet>
+<character.Endwormre>Endworm</character.Endwormre>
+<character.Crawlerhusk>Crawler Husk</character.Crawlerhusk>
+<character.Huskslasher>Slasher</character.Huskslasher>
+<character.Juggernaut>Juggernaut</character.Juggernaut>
+<character.Paralyser>Paralyser</character.Paralyser>
+<character.Huskinfector>Infector</character.Huskinfector>
+<character.Huskbroodemperor>Husk Brood Emperor</character.Huskbroodemperor>
+<character.CoelanthRe>Cnidae</character.CoelanthRe>
+<character.Bomber>Husk Bomber</character.Bomber>
+<character.Teleglitch>Electric Anomaly</character.Teleglitch>
+<character.Thalamid>Thalamid</character.Thalamid>
+<character.Ravager>Ravager</character.Ravager>
+<character.AlphaEndworm>Alpha Endworm</character.AlphaEndworm>
+<character.AlphaCharybdis>Alpha Charybdis</character.AlphaCharybdis>
+<character.wastecrawler>Waste Crawler</character.wastecrawler>
+<character.wastetigerthresher>Waste Tiger Thresher</character.wastetigerthresher>
+<character.wastebonethresher>Waste Bone Thresher</character.wastebonethresher>
+<character.wastemantis>Waste Mantis</character.wastemantis>
+<character.Endwhale>End Whale</character.Endwhale>
+<character.Rockworm>Rock Worm</character.Rockworm>
+<character.Deadnought>Deadnought</character.Deadnought>
+</infotext>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Survivor Monster Pack Test fixes" path="Mods/Survivor Monster Pack Test fixes/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2578623106" installtime="1637261436">
+  <Character file="Mods/Survivor Monster Pack Test fixes/Characters/Minoga/Minoga.xml" />
+  <Character file="Mods/Survivor Monster Pack Test fixes/Characters/Husker/Husker.xml" />
+  <Character file="Mods/Survivor Monster Pack Test fixes/Characters/Bloodsquid/Bloodsquid.xml" />
+  <Character file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur.png" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur_attack1.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur_attack2.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur_damage1.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur_damage2.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur_idle1.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur_death1.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Archimorur_idle2.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Bloodsquid/Bloodsquid.png" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Husker/Husker.png" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Husker/huskeridle1.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Husker/huskeridle2.ogg" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Minoga/Minoga.png" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Minoga/Minoga0.png" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Animations/ArchimorurSwimFast.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Animations/ArchimorurSwimSlow.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Archimorur/Ragdolls/ArchimorurDefaultRagdoll.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Bloodsquid/Animations/BloodsquidSwimFast.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Bloodsquid/Animations/BloodsquidSwimSlow.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Bloodsquid/Ragdolls/BloodsquidDefaultRagdoll.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Husker/Animations/HuskerSwimFast.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Husker/Animations/HuskerSwimSlow.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Husker/Ragdolls/HuskerDefaultRagdoll.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Minoga/Animations/MinogaSwimFast.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Minoga/Animations/MinogaSwimSlow.xml" />
+  <None file="Mods/Survivor Monster Pack Test fixes/Characters/Minoga/Ragdolls/MinogaDefaultRagdoll.xml" />
+</contentpackage>

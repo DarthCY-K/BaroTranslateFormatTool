@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Afflictions>
+
+   <Affliction name="Active Headset"
+	identifier="headset"
+	isbuff="true"
+	description="Your headset is powered and functional"
+	limbspecific="false"
+	indicatorlimb="Head"
+	showiconthreshold="0"
+	showinhealthscannerthreshold="100"
+	treatmentthreshold="100"
+	maxstrength="1" >
+        <Effect minstrength="0" maxstrength="1" strengthchange="-9"/>
+		<icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,128,128,128" origin="0,0" color="255,255,255,255" />
+   </Affliction>
+
+   <Affliction
+    name="Consumed"
+    identifier="consumed"
+    description="You have been swallowed whole"
+    type="consumed"
+    limbspecific="false"
+    indicatorlimb="Torso"
+	causeofdeathdescription="Consumed"
+    selfcauseofdeathdescription="You've been consumed"
+    activationthreshold="0"
+    showinhealthscannerthreshold="1"
+    showiconthreshold="1"
+    showicontoothersthreshold="1"
+    maxstrength="1">
+	<Effect minstrength="0.1" maxstrength="1" minvitalitydecrease="999" maxvitalitydecrease="999" strengthchange="1">
+      <StatusEffect target="Character" targetlimb="Torso" checkconditionalalways="true" stackable="false" delay="1" comparison="and">
+        <Conditional speciesname="human"/>
+        <Conditional isdead="true"/>
+        <RemoveCharacter />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,512,128,128" color="195,136,60,255" origin="0,0"/>
+	</Affliction>
+ 
+</Afflictions>

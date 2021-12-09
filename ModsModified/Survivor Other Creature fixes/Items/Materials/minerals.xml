@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Waste Sample" identifier="laro_wastesample" category="Material" Tags="smallitem" canbepicked="true" description="" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="storagecab" minamount="0" maxamount="1" spawnprobability="0.2" />
+    <Price baseprice="400" soldeverywhere="false">
+      <Price locationtype="research" multiplier="1.1" sold="true" />
+    </Price>
+    <InventoryIcon texture="Mods/Survivor Other Creature fixes/Items/Herbs/InventoryIconAtlas.png" sourcerect="384,192,64,64" />
+    <Sprite texture="CraftingElements1.png" sourcerect="5,55,46,38" depth="0.55" origin="0.5,0.5" />
+    <Body width="45" height="30" density="50" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+</Items>

@@ -1,0 +1,29 @@
+<Afflictions>
+ <Affliction
+    name="Egg laying"
+    identifier="egglay"
+    description="The creature suddenly vomits out an egg."
+    type="eggdevelopment"
+    limbspecific="false"
+    indicatorlimb="Torse"
+    activationthreshold="0"
+    showinhealthscannerthreshold="1000"
+    showiconthreshold="1000"
+    showicontoothersthreshold="1000"
+    maxstrength="100">
+    <Effect minstrength="80" maxstrength="99"
+      strengthchange="0">
+    </Effect>
+    <Effect minstrength="99" maxstrength="100" strengthchange="0">
+      <!-- Spawn the corresponding egg when the affliction reaches 100 strength -->
+      <StatusEffect target="Character" targetlimb="Head" checkconditionalalways="true" stackable="false" comparison="and">
+        <Conditional speciesname="MudraptorGray"/>
+        <Conditional isunconscious="false" />
+        <Conditional isdead="false" />
+        <SpawnItem identifier="smallmudraptoregg" spawnposition="This" count="1" spread="0" />
+        <SpawnItem identifier="huskmutantacidexplosion" spawnposition="This" count="1" spread="0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="0,640,128,128" color="60,107,195,255" origin="0,0"/>
+  </Affliction>
+</Afflictions>
