@@ -1,7 +1,11 @@
+<<<<<<< HEAD
+﻿
+=======
 ﻿using System.IO;
 using System.Reflection.PortableExecutable;
 using System.Xml;
 
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
 namespace BaroTranslateFormatTool.Tools
 {
     internal static class FileTools
@@ -41,5 +45,32 @@ namespace BaroTranslateFormatTool.Tools
             Directory.Delete(path, true);
         }
 
+<<<<<<< HEAD
+        /// <summary>
+        /// 修改mod文件名，同时删除部分内容
+        /// </summary>
+        /// <param name="oldName"></param>
+        /// <param name="newName"></param>
+        /// <param name="path"></param>
+        public static void RenameMod(string oldName, string newName, string path)
+        {
+            DirectoryInfo dirInfo = new DirectoryInfo(path + "\\" + oldName);
+            foreach(var file in dirInfo.GetFiles("*.xml", SearchOption.AllDirectories))
+            {
+                var fileContent = File.ReadAllText(file.FullName);
+                if (!fileContent.Contains(oldName))
+                {
+                    $"路径：{file.FullName}中未发现{oldName}，跳过".WriteWarningLine();
+                    continue;
+                }
+                $"路径：{file.FullName}中的{oldName}被替换成了{newName}".WriteSuccessLine();
+                fileContent = fileContent.Replace(oldName, newName);
+                File.WriteAllText(file.FullName, fileContent);
+            }
+
+            Directory.Move(path + "\\" + oldName, path + "\\" + newName);
+        }
+=======
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
     }
 }

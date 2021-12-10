@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+﻿using BaroTranslateFormatTool.Tools;
+=======
 ﻿using System;
 using System.Collections.Generic;
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
 using System.Xml;
 
 namespace BaroTranslateFormatTool.Class
@@ -10,25 +14,23 @@ namespace BaroTranslateFormatTool.Class
 
         private const string FilelistName = "filelist.xml";
 
-        private string _name;
-        private string _fileLoc; 
-        private List<string>? _itemXmlLoc;
-        private List<string>? _characterXmlLoc;
-        private List<string>? _afflictionXmlLoc;
-        private List<string>? _missionXmlLoc;
+        public string Name;
+        private readonly string _fileLoc; 
+        private readonly List<string>? _itemXmlLoc;
+        private readonly List<string>? _characterXmlLoc;
+        private readonly List<string>? _afflictionXmlLoc;
+        private readonly List<string>? _missionXmlLoc;
 
-        private List<string>? _itemNameList;
-        private List<string>? _characterNameList;
-        private List<string>? _afflictionNameList;
-        private List<string>? _missionNameList;
+        private readonly List<string>? _itemNameList;
+        private readonly List<string>? _characterNameList;
+        private readonly List<string>? _afflictionNameList;
+        private readonly List<string>? _missionNameList;
 
         #endregion
 
-        #region 构造函数
-
         public ModInf(string name, string loc)
         {
-            _name = name;
+            Name = name;
             _fileLoc = loc;
             _itemXmlLoc = new List<string>();
             _characterXmlLoc = new List<string>();
@@ -45,11 +47,9 @@ namespace BaroTranslateFormatTool.Class
             RemoveBaroDisplayName(_characterXmlLoc, BaroFileType.BaroFileTypeEnum.Character);
             RemoveBaroDisplayName(_itemXmlLoc, BaroFileType.BaroFileTypeEnum.Item);
 
-            //Debug测试方法
+            //Debug
             PrintXmlLoc();
         }
-
-        #endregion
 
         #region 工具函数
 
@@ -60,7 +60,7 @@ namespace BaroTranslateFormatTool.Class
         {
             List<string> tempList = new List<string>();
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(_fileLoc + "\\" + _name +"\\"+ FilelistName);
+            xmlDoc.Load(_fileLoc + "\\" + Name +"\\"+ FilelistName);
             XmlNode xn = xmlDoc.SelectSingleNode("contentpackage")!;
             XmlNodeList xn1 = xn.ChildNodes;
 
@@ -87,6 +87,7 @@ namespace BaroTranslateFormatTool.Class
             }
         }
 
+        // ReSharper disable once InconsistentNaming
         /// <summary>
         /// 获得并返回指定类型的ID集合
         /// </summary>
@@ -113,7 +114,10 @@ namespace BaroTranslateFormatTool.Class
                         if (name.Contains(','))
                             name = name.Substring(0, name.IndexOf(','));
                         tempList.Add(name);
+<<<<<<< HEAD
+=======
                         //tempList.Add(((XmlElement)node).GetAttribute(BaroFileType.BaroChildNodeDictionary[type]));
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
                     }
                 }
             }
@@ -134,7 +138,10 @@ namespace BaroTranslateFormatTool.Class
                             if (name.Contains(','))
                                 name = name.Substring(0, name.IndexOf(','));
                             tempList.Add(name);
+<<<<<<< HEAD
+=======
                             //tempList.Add(((XmlElement)node1).GetAttribute(BaroFileType.BaroChildNodeDictionary[type]));
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
                         }
                     }
                 }
@@ -165,7 +172,7 @@ namespace BaroTranslateFormatTool.Class
                     {
                         if (!aNode.InnerText.Equals(""))
                         {
-                            Console.WriteLine($"{_fileLoc + "\\" + path}的{BaroFileType.BaroDisplayNameDictionary[type]}={aNode.InnerText}被替换为空");
+                            $"{_fileLoc + "\\" + path}的{BaroFileType.BaroDisplayNameDictionary[type]}={aNode.InnerText}被替换为空".WriteSuccessLine();
                             aNode.InnerText = "";
                         }
                     }
@@ -179,11 +186,43 @@ namespace BaroTranslateFormatTool.Class
         /// </summary>
         public void ModifyBaroFileName(string name)
         {
-            //TODO 更改文件名的时候要注意修改xml里的绝对路径，将旧名字换为新名字
-            //TODO 嫌疑文件除了四大基本类型的xml文件外，还有filelist.xml和character类型里的ragdoll系列xml，建议是遍历所有存在的xml文件进行匹配删除
+            FileTools.RenameMod(Name, name, _fileLoc);
         }
 
         /// <summary>
+        /// 创建并写入xml翻译文件
+        /// </summary>
+        /// <param name="language">语言</param>
+        /// <param name="path">汉化路径</param>
+        public void WriteXmlFile(string language, string path)
+        {
+            //TODO 这里每次写之前要检查有无重复文件，目前遇到重复文件就不会再新建
+            XmlDocument? doc = PrintToTranslationFile(language, path);
+            doc?.Save(path + "\\" + Name + "-" + BaroFileType.BaroTranslateNameDictionary[language] + ".xml");
+        }
+        /// <summary>
+        /// 创建并写入xml翻译文件
+        /// </summary>
+        /// <param name="language">语言</param>
+        /// <param name="name">文件名</param>
+        /// <param name="path">汉化路径</param>
+        public void WriteXmlFile(string language, string name, string path)
+        {
+            //TODO 这里每次写之前要检查有无重复文件，目前遇到重复文件就不会再新建
+            XmlDocument? doc = PrintToTranslationFile(language, path);
+            doc?.Save(path + "\\" + name + ".xml");
+        }
+
+        /// <summary>
+<<<<<<< HEAD
+        /// 根据获得的列表生成xml对象
+        /// </summary>
+        /// <param name="language">语言</param>
+        /// <param name="path">汉化路径</param>
+        /// <returns>创建好的XmlDocument对象</returns>
+        private XmlDocument? PrintToTranslationFile(string language, string path)
+        {
+=======
         /// 创建并写入xml翻译文件
         /// </summary>
         /// <param name="language">语言</param>
@@ -215,6 +254,7 @@ namespace BaroTranslateFormatTool.Class
         /// <returns>创建好的XmlDocument对象</returns>
         private XmlDocument? PrintToTranslationFile(string language, string path)
         {
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
             //是否有值，影响xml是否返回null
             bool hasValue = false;
 
@@ -222,6 +262,21 @@ namespace BaroTranslateFormatTool.Class
             XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "utf-8", "yes");
             doc.AppendChild(dec);
             
+<<<<<<< HEAD
+            XmlElement rootElement = doc.CreateElement("infotext");
+
+            XmlAttribute lanAttribute = doc.CreateAttribute("language");lanAttribute.Value = language;
+            rootElement.Attributes.Append(lanAttribute);
+
+            XmlAttribute whitespaceAttribute = doc.CreateAttribute("nowhitespace");whitespaceAttribute.Value = "true";
+            rootElement.Attributes.Append(whitespaceAttribute);
+
+            XmlAttribute translatedAttribute = doc.CreateAttribute("translatedname");translatedAttribute.Value = BaroFileType.BaroTranslateNameDictionary[language];
+            rootElement.Attributes.Append(translatedAttribute);
+
+            //TODO 下面部分需要针对特殊情况和内容进行整合，现在冗余度太高
+
+=======
             //infotext
             XmlElement rootElement = doc.CreateElement("infotext");
             //language="" nowhitespace="true" translatedname=""
@@ -235,6 +290,7 @@ namespace BaroTranslateFormatTool.Class
             translatedAttribute.Value = BaroFileType.BaroTranslateNameDictionary[language];
             rootElement.Attributes.Append(translatedAttribute);
 
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
             //Item名称集合不为空
             if (_itemNameList != null && _itemNameList.Count > 0)
             {
@@ -285,6 +341,15 @@ namespace BaroTranslateFormatTool.Class
                     descElement.InnerXml = " ";
                     rootElement.AppendChild(descElement);
 
+<<<<<<< HEAD
+                    XmlElement causeOfDeathElement = doc.CreateElement("afflictioncauseofdeath." + name);
+                    causeOfDeathElement.InnerXml = " ";
+                    rootElement.AppendChild(causeOfDeathElement);
+
+                    XmlElement causeOfDeathSelfElement = doc.CreateElement("afflictioncauseofdeathself." + name);
+                    causeOfDeathSelfElement.InnerXml = " ";
+                    rootElement.AppendChild(causeOfDeathSelfElement);
+=======
                     //XmlElement causeOfDeathElement = doc.CreateElement("afflictioncauseofdeath." + name);
                     //causeOfDeathElement.InnerXml = " ";
                     //rootElement.AppendChild(causeOfDeathElement);
@@ -292,6 +357,7 @@ namespace BaroTranslateFormatTool.Class
                     //XmlElement causeOfDeathSelfElement = doc.CreateElement("afflictioncauseofdeathself." + name);
                     //causeOfDeathSelfElement.InnerXml = " ";
                     //rootElement.AppendChild(causeOfDeathSelfElement);
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
 
                 }
                 if (hasValue == false) hasValue = true;
@@ -313,6 +379,23 @@ namespace BaroTranslateFormatTool.Class
                     descElement.InnerXml = " ";
                     rootElement.AppendChild(descElement);
 
+<<<<<<< HEAD
+                    XmlElement successElement = doc.CreateElement("missionsuccess." + name);
+                    successElement.InnerXml = " ";
+                    rootElement.AppendChild(successElement);
+
+                    XmlElement sonarElement = doc.CreateElement("missionsonarlabel." + name);
+                    sonarElement.InnerXml = " ";
+                    rootElement.AppendChild(sonarElement);
+
+                    XmlElement headerElement = doc.CreateElement("missionheader0." + name);
+                    headerElement.InnerXml = " ";
+                    rootElement.AppendChild(headerElement);
+
+                    XmlElement messageElement = doc.CreateElement("missionmessage0." + name);
+                    messageElement.InnerXml = " ";
+                    rootElement.AppendChild(messageElement);
+=======
                     //XmlElement successElement = doc.CreateElement("missionsuccess." + name);
                     //successElement.InnerXml = " ";
                     //rootElement.AppendChild(successElement);
@@ -328,6 +411,7 @@ namespace BaroTranslateFormatTool.Class
                     //XmlElement messageElement = doc.CreateElement("missionmessage0." + name);
                     //messageElement.InnerXml = " ";
                     //rootElement.AppendChild(messageElement);
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
                 }
                 if (hasValue == false) hasValue = true;
             }
@@ -346,7 +430,7 @@ namespace BaroTranslateFormatTool.Class
         /// </summary>
         public void PrintXmlLoc()
         {
-            Console.WriteLine($"++++++++{_name}++++++++");
+            Console.WriteLine($"++++++++{Name}++++++++");
 
             if (_itemXmlLoc != null && _itemXmlLoc.Count != 0)
             {

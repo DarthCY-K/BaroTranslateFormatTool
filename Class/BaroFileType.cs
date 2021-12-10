@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+﻿
+=======
 ﻿using System.Collections.Generic;
 
+>>>>>>> 6b2c672421d08a5dfe64228cf8d959f55e95fcc3
 namespace BaroTranslateFormatTool.Class
 {
     public static class BaroFileType
