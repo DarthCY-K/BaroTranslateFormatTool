@@ -1,0 +1,14 @@
+D:\DevelopSpace\BaroTranslateFormatTool\bin\Debug\net6.0\BaroTranslateFormatTool.exe
+D:\DevelopSpace\BaroTranslateFormatTool\bin\Debug\net6.0\BaroTranslateFormatTool.deps.json
+D:\DevelopSpace\BaroTranslateFormatTool\bin\Debug\net6.0\BaroTranslateFormatTool.runtimeconfig.json
+D:\DevelopSpace\BaroTranslateFormatTool\bin\Debug\net6.0\BaroTranslateFormatTool.dll
+D:\DevelopSpace\BaroTranslateFormatTool\bin\Debug\net6.0\ref\BaroTranslateFormatTool.dll
+D:\DevelopSpace\BaroTranslateFormatTool\bin\Debug\net6.0\BaroTranslateFormatTool.pdb
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.GeneratedMSBuildEditorConfig.editorconfig
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.AssemblyInfoInputs.cache
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.AssemblyInfo.cs
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.csproj.CoreCompileInputs.cache
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.dll
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\ref\BaroTranslateFormatTool.dll
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.pdb
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.genruntimeconfig.cache
