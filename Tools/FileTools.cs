@@ -37,7 +37,6 @@ namespace BaroTranslateFormatTool.Tools
             Directory.Delete(path, true);
         }
 
-        //TODO 此方法存在只修改第一个的问题，需要重构以生成遍历功能
         /// <summary>
         /// 修改mod文件名，同时删除部分内容
         /// </summary>

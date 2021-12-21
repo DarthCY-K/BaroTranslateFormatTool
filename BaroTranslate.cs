@@ -25,11 +25,11 @@ namespace BaroTranslateFormatTool
             foreach (DirectoryInfo info in new DirectoryInfo(ModifiedFilePath).GetDirectories()) 
                 modObjectList.Add(new ModInf(info.Name, ModifiedFilePath));
 
-            //foreach (var mod in modObjectList)
-            //{
-            //    mod.WriteXmlFile("Simplified Chinese", NewTranslateFilePath);
-            //    mod.ModifyBaroFileName(mod.Name + " CN");
-            //}
+            foreach (var mod in modObjectList)
+            {
+                mod.WriteXmlFile("Simplified Chinese", NewTranslateFilePath);
+                mod.ModifyBaroFileName(mod.Name + " CN");
+            }
         }
     }
 }

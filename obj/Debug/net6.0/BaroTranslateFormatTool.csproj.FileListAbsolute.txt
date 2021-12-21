@@ -12,3 +12,4 @@ D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool
 D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\ref\BaroTranslateFormatTool.dll
 D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.pdb
 D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.genruntimeconfig.cache
+D:\DevelopSpace\BaroTranslateFormatTool\obj\Debug\net6.0\BaroTranslateFormatTool.csproj.AssemblyReference.cache
