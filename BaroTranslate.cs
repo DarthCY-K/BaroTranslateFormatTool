@@ -5,12 +5,12 @@ namespace BaroTranslateFormatTool
 {
     internal class BaroTranslate
     {
-
         private const string RootPath = "D:\\DevelopSpace\\BaroTranslateFormatTool\\";
         private const string SourceFilePath = RootPath + "Mods\\";
         private const string ModifiedFilePath = RootPath + "ModsModified\\";
         private const string OldTranslateFilePath = RootPath + "OldTranslateTexts\\";
         private const string NewTranslateFilePath = RootPath + "NewTranslateTexts\\";
+        private const string TargetLanguage = "Simplified Chinese";
 
         public static void Main(string[] args)
         {
@@ -20,14 +20,19 @@ namespace BaroTranslateFormatTool
             {
                 FileTools.DeleteFolder(ModifiedFilePath);
                 FileTools.CopyFolder(SourceFilePath, ModifiedFilePath);
-            }catch (IOException e) { e.ToString().WriteErrorLine(); }
+            }
+            catch (IOException e)
+            {
+                e.ToString().WriteErrorLine();
+            }
 
             foreach (DirectoryInfo info in new DirectoryInfo(ModifiedFilePath).GetDirectories()) 
                 modObjectList.Add(new ModInf(info.Name, ModifiedFilePath));
 
             foreach (var mod in modObjectList)
             {
-                mod.WriteXmlFile("Simplified Chinese", NewTranslateFilePath);
+                mod.Execute();
+                mod.WriteXmlFile(TargetLanguage, NewTranslateFilePath);
                 mod.ModifyBaroFileName(mod.Name + " CN");
             }
         }

@@ -8,8 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Formated\**" />
+    <EmbeddedResource Remove="Formated\**" />
+    <None Remove="Formated\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Mods\" />
-    <Folder Include="Formated\" />
     <Folder Include="ModsModified\" />
   </ItemGroup>
 

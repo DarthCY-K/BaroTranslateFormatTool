@@ -87,5 +87,10 @@ namespace BaroTranslateFormatTool.Class
         {
             {"Simplified Chinese","中文(简体)"}
         };
+
+        internal static Dictionary<string, string> BaroAbbreviation = new()
+        {
+            { "Simplified Chinese", "中文(简体)" }
+        };
     }
 }

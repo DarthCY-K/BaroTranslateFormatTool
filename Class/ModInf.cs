@@ -11,16 +11,19 @@ namespace BaroTranslateFormatTool.Class
         private const string FilelistName = "filelist.xml";
 
         public string Name;
-        private readonly string _fileLoc;
+        private string _fileLoc;
+
+        //TODO 可以定义一种数据结构来存储这些list，而不是使用四种list
+        //TODO 自定义格式和读取写入规则
         private readonly List<string>? _itemXmlLoc;
         private readonly List<string>? _characterXmlLoc;
         private readonly List<string>? _afflictionXmlLoc;
         private readonly List<string>? _missionXmlLoc;
 
-        private readonly List<string>? _itemNameList;
-        private readonly List<string>? _characterNameList;
-        private readonly List<string>? _afflictionNameList;
-        private readonly List<string>? _missionNameList;
+        private List<string>? _itemNameList;
+        private List<string>? _characterNameList;
+        private List<string>? _afflictionNameList;
+        private List<string>? _missionNameList;
 
         private readonly Dictionary<BaroFileType.BaroType, List<string>> TypeToNameList;
 
@@ -30,25 +33,30 @@ namespace BaroTranslateFormatTool.Class
         {
             Name = name;
             _fileLoc = loc;
+
             _itemXmlLoc = new List<string>();
             _characterXmlLoc = new List<string>();
             _afflictionXmlLoc = new List<string>();
             _missionXmlLoc = new List<string>();
+
             TypeToNameList = new Dictionary<BaroFileType.BaroType, List<string>>
             {
-                { BaroFileType.BaroType.Item, _itemNameList },
-                { BaroFileType.BaroType.Character, _characterNameList },
-                { BaroFileType.BaroType.Affliction, _afflictionNameList },
-                { BaroFileType.BaroType.Mission, _missionNameList }
+                { BaroFileType.BaroType.Item, _itemNameList! },
+                { BaroFileType.BaroType.Character, _characterNameList! },
+                { BaroFileType.BaroType.Affliction, _afflictionNameList! },
+                { BaroFileType.BaroType.Mission, _missionNameList! }
             };
 
+        }
+
+        /// <summary>
+        /// 执行翻译操作
+        /// </summary>
+        public void Execute()
+        {
             SearchForXmlLoc();
 
-            _itemNameList = GetBaroID(_itemXmlLoc, BaroFileType.BaroType.Item);
-            _characterNameList = GetBaroID(_characterXmlLoc, BaroFileType.BaroType.Character);
-            _afflictionNameList = GetBaroID(_afflictionXmlLoc, BaroFileType.BaroType.Affliction);
-            _missionNameList = GetBaroID(_missionXmlLoc, BaroFileType.BaroType.Mission);
-
+            InitNameList();
 
             RemoveBaroDisplayName(_characterXmlLoc, BaroFileType.BaroType.Character);
             RemoveBaroDisplayName(_itemXmlLoc, BaroFileType.BaroType.Item);
@@ -91,6 +99,17 @@ namespace BaroTranslateFormatTool.Class
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// 初始化四个对象名称列表
+        /// </summary>
+        private void InitNameList()
+        {
+            _itemNameList = GetBaroID(_itemXmlLoc, BaroFileType.BaroType.Item);
+            _characterNameList = GetBaroID(_characterXmlLoc, BaroFileType.BaroType.Character);
+            _afflictionNameList = GetBaroID(_afflictionXmlLoc, BaroFileType.BaroType.Affliction);
+            _missionNameList = GetBaroID(_missionXmlLoc, BaroFileType.BaroType.Mission);
         }
 
         /// <summary>
@@ -244,26 +263,30 @@ namespace BaroTranslateFormatTool.Class
         /// <returns>创建好的XmlDocument对象</returns>
         private XmlDocument? PrintToTranslationFile(string language, string path)
         {
+            //TODO 对于这些固定值，也许可以通过文件流后续在首行写入，而不是每次都要创建xml对象
             //是否有值，影响xml是否返回null
             bool hasValue = false;
 
             XmlDocument doc = new XmlDocument();
-            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "utf-8", "yes");
-            doc.AppendChild(dec);
+            doc.AppendChild(doc.CreateXmlDeclaration("1.0", "utf-8", "yes"));
+
             XmlElement rootElement = doc.CreateElement("infotext");
+            doc.AppendChild(rootElement);
+
             XmlAttribute lanAttribute = doc.CreateAttribute("language");
             lanAttribute.Value = language;
             rootElement.Attributes.Append(lanAttribute);
+
             XmlAttribute whitespaceAttribute = doc.CreateAttribute("nowhitespace");
             whitespaceAttribute.Value = "true";
             rootElement.Attributes.Append(whitespaceAttribute);
+
             XmlAttribute translatedAttribute = doc.CreateAttribute("translatedname");
             translatedAttribute.Value = BaroFileType.BaroTranslateNameDictionary[language];
             rootElement.Attributes.Append(translatedAttribute);
-            rootElement.Attributes.Append(translatedAttribute);
 
             hasValue = ProduceAllXmlElement(doc, rootElement, BaroFileType.BaroType.Item);
-            doc.AppendChild(rootElement);
+            //doc.AppendChild(rootElement);
 
             return hasValue ? doc : null;
         }
@@ -273,55 +296,15 @@ namespace BaroTranslateFormatTool.Class
             bool hasValue;
 
             //Item名称集合不为空
-            hasValue = ProduceClassifiedXmlElement(doc, root, BaroFileType.BaroType.Item, _itemNameList);
+            hasValue = TranslateBuilder.ProduceClassifiedXmlElement(doc, root, BaroFileType.BaroType.Item, _itemNameList);
             //Character名称集合不为空
-            hasValue = ProduceClassifiedXmlElement(doc, root, BaroFileType.BaroType.Item, _characterNameList);
+            hasValue = TranslateBuilder.ProduceClassifiedXmlElement(doc, root, BaroFileType.BaroType.Item, _characterNameList);
             //Affliction名称集合不为空
-            hasValue = ProduceClassifiedXmlElement(doc, root, BaroFileType.BaroType.Item, _afflictionNameList);
+            hasValue = TranslateBuilder.ProduceClassifiedXmlElement(doc, root, BaroFileType.BaroType.Item, _afflictionNameList);
             //Mission名称集合不为空
-            hasValue = ProduceClassifiedXmlElement(doc, root, BaroFileType.BaroType.Item, _missionNameList);
+            hasValue = TranslateBuilder.ProduceClassifiedXmlElement(doc, root, BaroFileType.BaroType.Item, _missionNameList);
 
             return hasValue;
-        }
-
-        /// <summary>
-        /// 新建标签名为name的XmlElement
-        /// </summary>
-        /// <param name="doc">所属的XmlDocument</param>
-        /// <param name="name">XmlElement</param>
-        /// <returns></returns>
-        private static XmlElement ProduceXmlElement(XmlDocument doc, string name)
-        {
-            XmlElement element = doc.CreateElement(name);
-            element.InnerXml = " ";
-
-            return element;
-        }
-
-        /// <summary>
-        /// 根据不同的分类提供创建汉化xml方法
-        /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="root"></param>
-        /// <param name="type">翻译类型</param>
-        /// <returns></returns>
-        private static bool ProduceClassifiedXmlElement(XmlDocument doc, XmlElement root, BaroFileType.BaroType type, List<string> list)
-        {
-            if (list.Count <= 0) return false;
-
-            root.AppendChild(doc.CreateComment(BaroFileType.FileNameDictionary[type]));
-
-            foreach (var name in list)
-            {
-                root.AppendChild(doc.CreateComment(name));
-
-                foreach (var desc in BaroFileType.BaroXmlDescDictionary[type])
-                {
-                    root.AppendChild(ProduceXmlElement(doc, desc + name));
-                }
-            }
-            doc.AppendChild(root);
-            return true;
         }
 
         #endregion
